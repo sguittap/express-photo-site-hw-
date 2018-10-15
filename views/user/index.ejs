@@ -6,10 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-<body>
-    <h1>User Website</h1>
-    <% for(let i=0; i < user.length; i++){ %>
-        <a href="/user/<%=user[i]%>"></a>
-    <% } %>
-</body>
+    <body>
+        <h1>User Website</h1>
+        <a href="/user/new"><button>Add yourself!</button></a><br>
+        <ul>
+            
+            <% for(let i=0; i < user.length; i++){ %>
+               <li> <a href="/user/<%=user[i].id%>"><%=user[i].username%></a></li>
+            <% } %>
+            
+        </ul>
+    </body>
 </html>

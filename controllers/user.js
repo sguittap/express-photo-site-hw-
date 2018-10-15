@@ -6,9 +6,25 @@ const User = require('../models/user')
 
 router.get('/', (req, res)=>{
     User.find({}, (err, getUser)=>{
-      res.render('User/index.ejs', {
+      res.render('user/index.ejs', {
         user: getUser
       });
+    })
+});
+
+//new
+router.get('/new', (req, res) => {
+    res.render('user/new.ejs');
+});
+
+router.post('/', (req, res) => {
+    User.create(req.body, (err, createdUser) => {
+      if(err){
+        console.log(err)
+      } else {
+        console.log(createdUser);
+        res.redirect('/user')
+      }
     })
 });
 
