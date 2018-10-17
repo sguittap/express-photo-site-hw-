@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <header>
+    <h1><%= user.username%>'s Page</h1>
+        <a href="/"><button>Home</button></a>
+        <a href="/user"><button>User Index</button></a>
+        <a href="/user/<%=user.id%>/edit"><button>Edit User</button></a>
+  </header>
+  <main>
+    <section>
+      <h2><%= user.username%>'s Photos:</h2>
+      <ul>
+        <%for (let i = 0; i < user.photos.length; i++) {%>
+            <li>
+              <a href="/photos/<%=user.photos[i].id%>"><%=user.photos[i].title%></a>
+              <form action="/user/<%=user.id%>?_method=DELETE" method="POST">
+                <input type="submit" value="Delete User">
+                </form>
+            </li>
+       <% }%>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

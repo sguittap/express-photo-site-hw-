@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <header>
+      <h1>Edit <%=user.title%>'s Info</h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/photos">Photos Index</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2>Photos Attributes:</h2>
+      <form action="/photos/<%=photos._id%>?_method=PUT" method="POST">
+
+        <select name="UserId">
+          <%for (let i = 0; i < authors.length; i++) {%>
+            <option value="<%=user[i].id%>"
+              <%if(user[i]._id.toString() === userPhotos._id.toString()){%>
+                  selected
+              <%}%>
+            ><%=user[i].name%></option>
+          <%}%>
+        </select>
+        <br>
+        <input type="text" name="title" value="<%=user.title%>"/><br/>
+        <textarea name="body"><%=user.body%></textarea><br/>
+        <input type="submit" value="Update Photos"/>
+      </form>
+    </main>
+  </body>
+</html>
