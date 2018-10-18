@@ -19,11 +19,11 @@
       Username:<input type="text" name="username" value="<%=user.username%>"><br>
       Password:<input type="text" name="password" value="<%=user.password%>"><br>
       <button type="submit">Update User</button>
-      
+      </form>
       <form action="/user/<%=user._id%>?_method=DELETE" method="POST">
         <input type="submit" value="Delete User">
-        </form>
-    </form>
+      </form>
+    
   </main>
 </body>
 </html>
